@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/kasfit-landing",
+    "public": "dist/kasfit-landing/browser",
     "ignore": [
       "firebase.json",
       "**/.*",

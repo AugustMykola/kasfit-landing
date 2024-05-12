@@ -1,0 +1,38 @@
+<footer id="footer-wrapper">
+  <div class="container">
+    <div class="footer-part-container social">
+      <div>logo</div>
+      <h3 class="description">FITNESS як образ життя! Треную тіло і душу</h3>
+      <div class="social-media-container">
+        <p class="text">Приєднатися до спільноти</p>
+        <div class="social-media-list">
+          <a *ngFor="let socialMediaItem of socialMediaItemsList"
+             [href]="socialMediaItem.link"
+             class="social-media-link-button"
+             target="_blank">
+            <img ngSrc="assets/vectors/{{socialMediaItem.image}}" height="40" width="40">
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-part-container contacts">
+      <p class="description">Contacts</p>
+      <div class="contacts-list">
+        <div class="contact-item" *ngFor="let contactItem of contactItemsList">
+          <div class="contact-item-image">
+            <img ngSrc="assets/vectors/{{contactItem.image}}" height="40" width="40">
+          </div>
+          <div class="contact-item-description">
+            <p class="name">{{contactItem.itemName}}</p>
+            <p class="item">{{contactItem.itemValue}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rights-block">
+    <span>KASFIT</span>
+    <span>2024</span>
+    <span>All Right Reserved</span>
+  </div>
+</footer>

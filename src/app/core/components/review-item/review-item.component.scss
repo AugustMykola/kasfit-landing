@@ -1,0 +1,124 @@
+.review-item {
+  position: relative;
+  padding: 30px;
+  background-color: var(--color-opacity-gray);
+
+  .image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    left: 45%;
+    top: -23px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .review-description-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .training-direction {
+      span {
+        font-size: 25px;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+
+      .direction {
+        margin-left: 8px;
+      }
+    }
+
+    .description {
+      min-height: 200px;
+      font-size: 25px;
+      letter-spacing: 2px;
+      text-align: justify;
+      @media screen and (min-width: 1200px) {
+        font-size: 18px;
+      }
+    }
+
+    .signature {
+      text-align: end;
+      font-size: 25px;
+      letter-spacing: 2px;
+      font-weight: bold;
+    }
+  }
+}
+
+.pilates {
+  box-shadow: -15px -10px 0px var(--color-light-blue), 15px 10px 0px var(--color-light-blue);
+
+  .image {
+    border: 5px solid var(--color-light-blue);
+    box-shadow: 0 0 25px var(--color-light-blue);
+    background-image: url("../../../../assets/images/kasfit-1.jpg");
+  }
+
+  .review-description-container {
+    .training-direction {
+      .direction {
+        color: var(--color-light-blue);
+      }
+    }
+  }
+}
+
+.functional-trx {
+  box-shadow: -15px -10px 0px var(--color-light-yellow), 15px 10px 0px var(--color-light-yellow);
+
+  .image {
+    border: 5px solid var(--color-light-yellow);
+    box-shadow: 0 0 25px var(--color-light-yellow);
+    background-image: url("../../../../assets/images/kasfit-1.jpg");
+  }
+
+  .review-description-container {
+    .training-direction {
+      .direction {
+        color: var(--color-light-yellow);
+      }
+    }
+  }
+}
+
+.barre {
+  box-shadow: -15px -10px 0px var(--color-light-purpule), 15px 10px 0px var(--color-light-purpule);
+
+  .image {
+    border: 5px solid var(--color-light-purpule);
+    box-shadow: 0 0 25px var(--color-light-purpule);
+    background-image: url("../../../../assets/images/kasfit-1.jpg");
+  }
+
+  .review-description-container {
+    .training-direction {
+      .direction {
+        color: var(--color-light-purpule);
+      }
+    }
+  }
+}
+
+.stretching-lite {
+  box-shadow: -15px -10px 0px var(--color-main-green), 15px 10px 0px var(--color-main-green);
+
+  .image {
+    border: 5px solid var(--color-main-green);
+    box-shadow: 0 0 25px var(--color-main-green);
+    background-image: url("../../../../assets/images/kasfit-1.jpg");
+  }
+
+  .review-description-container {
+    .training-direction {
+      .direction {
+        color: var(--color-main-green);
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+<div class="service-item-container {{serviceItem.className}}">
+  <div class="item-header">
+    <h4 class="sub-heading">{{serviceItem.direction}}</h4>
+    <p class="description">Групові та персональні тренування indoor + outdoor</p>
+    <div class="link-container">
+      <a href="https://www.instagram.com/kasfit_007/"
+         class="social-media-link-button"
+         target="_blank">
+        Приєднатися
+      </a>
+    </div>
+  </div>
+  <div class="description-container"><p class="description-main-text">{{serviceItem.description.mainText}}</p>
+    <p class="description-sub-text">{{serviceItem.description.subText}}</p>
+    <div class="advantages-list">
+      <div class="advantages-item" *ngFor="let advantagesItem of serviceItem.advantages">
+        <div class="advantages-item-description">{{advantagesItem.description}}</div>
+      </div>
+    </div>
+    <p class="description-sub-text">{{serviceItem.additionalInfo}}</p></div>
+</div>

@@ -1,19 +1,21 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {FooterComponent} from "./core/components/footer/footer.component";
 import {HeaderComponent} from "./core/components/header/header.component";
 import {NgForOf, NgOptimizedImage} from "@angular/common";
 import {ReviewItemComponent} from "./core/components/review-item/review-item.component";
 import {ServiceItemComponent} from "./core/components/service-item/service-item.component";
+import {DataControllerService} from "./core/providers/data-controller.service";
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, FooterComponent, HeaderComponent, NgForOf, ReviewItemComponent, ServiceItemComponent, NgOptimizedImage],
+  providers: [DataControllerService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'kasfit-landing';
 
   serviceItemListData = [
@@ -149,4 +151,11 @@ export class AppComponent {
       signature: 'KASFIT'
     }
   ]
+
+  constructor(private dataController: DataControllerService) {
+
+  }
+  ngOnInit() {
+    this.dataController.getData().subscribe(res => console.log(res))
+  }
 }

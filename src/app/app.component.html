@@ -7,7 +7,7 @@
   </section>
 
   <section class="section about-me-section">
-    <h3 class="sub-heading highlighter">Чому обирають мене?</h3>
+    <h3 class="sub-heading highlighter">{{aboutMeSectionHeader()}}</h3>
 
     <div class="grid-two section-container">
       <div class="list-images-container-first">
@@ -18,49 +18,13 @@
       </div>
       <div class="text-container">
         <p class="description">
-          Шукаєте професійного, сертифікованого тренера з фітнесу, який може запропонувати вам індивідуальний план, що відповідає вашим потребам? З роками досвіду у фітнесі, тренуваннях і харчуванні я можу допомогти вам вирішити ваші проблеми здоров'я з кількох напрямків, щоб забезпечити максимальні результати. Давайте поставимо ваше благополуччя і щастя на перше місце. Готові почати?
+         {{aboutMeSectionDescription()}}
         </p>
         <div class="list-ofdetail-container">
-          <div class="ofdetail-item">
+          <div *ngFor="let benefitItem of benefitsList()" class="ofdetail-item">
             <img class="image" ngSrc="assets/vectors/checked-checkbox-svgrepo-com.svg" height="40" width="40">
             <span>
-              Більше семи років досвіду в сфері спорту
-            </span>
-          </div>
-          <div class="ofdetail-item">
-            <img class="image" ngSrc="assets/vectors/checked-checkbox-svgrepo-com.svg" height="40" width="40">
-            <span>
-              Більше семи років досвіду в сфері спорту
-            </span>
-          </div>
-          <div class="ofdetail-item">
-            <img class="image" ngSrc="/assets/vectors/checked-checkbox-svgrepo-com.svg" height="40" width="40">
-            <span>
-              Більше семи років досвіду в сфері спорту
-            </span>
-          </div>
-          <div class="ofdetail-item">
-            <img class="image" ngSrc="assets/vectors/checked-checkbox-svgrepo-com.svg" height="40" width="40">
-            <span>
-              Більше семи років досвіду в сфері спорту
-            </span>
-          </div>
-          <div class="ofdetail-item">
-            <img class="image" ngSrc="assets/vectors/checked-checkbox-svgrepo-com.svg" height="40" width="40">
-            <span>
-              Більше семи років досвіду в сфері спорту
-            </span>
-          </div>
-          <div class="ofdetail-item">
-            <img class="image" ngSrc="assets/vectors/checked-checkbox-svgrepo-com.svg" height="40" width="40">
-            <span>
-              Більше семи років досвіду в сфері спорту
-            </span>
-          </div>
-          <div class="ofdetail-item">
-            <img class="image" ngSrc="assets/vectors/checked-checkbox-svgrepo-com.svg" height="40" width="40">
-            <span>
-              Заняття онлайн
+              {{benefitItem.description}}
             </span>
           </div>
         </div>
@@ -69,7 +33,7 @@
             href="https://www.instagram.com/kasfit_007/"
             class="social-media-link-button"
             target="_blank">
-            Приєднатися
+            {{joinButtonLabel()}}
           </a>
         </div>
       </div>
@@ -77,22 +41,21 @@
   </section>
 
   <section class="section services-section">
+
     <p class="sub-heading">
-      Тренуйся зі мною в
-      <span>BARRE, PILATES, STRETCHING, MIND&BODY, TRX-FUNCTIONAL</span>
-      напрямках
+      {{servicesSectionHeader()}}
     </p>
     <div class="services-list-container">
-      <ng-container *ngFor="let serviceItem of serviceItemListData">
+      <ng-container *ngFor="let serviceItem of serviceItemListData()">
         <app-service-item [serviceItem]="serviceItem"></app-service-item>
       </ng-container>
     </div>
   </section>
 
   <section class="section reviews-section">
-    <h4 class="sub-heading">Що кажуть мої клієнти</h4>
+    <h4 class="sub-heading">{{reviewsSectionHeader()}}</h4>
     <div class="reviews-list-container">
-      <ng-container *ngFor="let reviewItem of reviewItemListData">
+      <ng-container *ngFor="let reviewItem of reviewItemListData()">
         <app-review-item [reviewItem]="reviewItem"></app-review-item>
       </ng-container>
     </div>

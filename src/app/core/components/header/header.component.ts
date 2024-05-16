@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {NgForOf} from "@angular/common";
 
 @Component({
@@ -11,6 +11,5 @@ import {NgForOf} from "@angular/common";
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  readonly linkList: string[] = ['Про мене','Тренування','Відгуки','Контакти']
-
+  @Input() linkList: string[] = [];
 }

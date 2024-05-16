@@ -1,14 +1,12 @@
 import { Injectable } from '@angular/core';
-import {AngularFireDatabase, AngularFireList} from "@angular/fire/compat/database";
+import {AngularFireDatabase} from "@angular/fire/compat/database";
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataControllerService {
-  private path: string = '/test'
-  expancesRef: AngularFireList<any>;
+  private path: string = '/data'
   constructor(private db: AngularFireDatabase) {
-    this.expancesRef = db.list(this.path)
   }
 
   getData() {

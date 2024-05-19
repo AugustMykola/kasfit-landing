@@ -235,8 +235,8 @@ export class AppComponent implements OnInit {
       this.dataController.getDataAboutMeSectionHeader(),
       this.dataController.getDataAboutMeSectionDescription(),
       this.dataController.getDataLoinButtonLabel(),
-      this.dataController.getDataReviewsSectionHeader(),
       this.dataController.getDataServicesSectionHeader(),
+      this.dataController.getDataReviewsSectionHeader(),
       this.dataController.getDataBenefitsList()
     ])
       .pipe(
@@ -262,6 +262,8 @@ export class AppComponent implements OnInit {
           benefitsList
         }
       ) => {
+
+        console.log(servicesSectionHeader)
         this.linkList.set(links);
         this.serviceItemListData.set(services);
         this.reviewItemListData.set(reviews);
@@ -278,7 +280,5 @@ export class AppComponent implements OnInit {
 
   test(event: MatTabChangeEvent): void {
     this.currentTheme = this.themesList[event.index]
-    console.log(event)
-    console.log(event.index)
   }
 }

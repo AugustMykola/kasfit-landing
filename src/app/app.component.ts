@@ -2,23 +2,28 @@ import {Component, OnInit, signal, WritableSignal} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
 import {FooterComponent} from "./core/components/footer/footer.component";
 import {HeaderComponent} from "./core/components/header/header.component";
-import {AsyncPipe, JsonPipe, NgForOf, NgOptimizedImage} from "@angular/common";
+import {AsyncPipe, JsonPipe, NgClass, NgForOf, NgOptimizedImage, UpperCasePipe} from "@angular/common";
 import {ReviewItemComponent} from "./core/components/review-item/review-item.component";
 import {ServiceItemComponent} from "./core/components/service-item/service-item.component";
 import {DataControllerService} from "./core/providers/data-controller.service";
 import {ContactItemModel, SocialMediaItemModel} from "./core/models/models";
 import {BehaviorSubject, combineLatest, first, forkJoin, map, tap} from "rxjs";
+import {MatTab, MatTabChangeEvent, MatTabGroup, MatTabsModule} from "@angular/material/tabs";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FooterComponent, HeaderComponent, NgForOf, ReviewItemComponent, ServiceItemComponent, NgOptimizedImage, JsonPipe, AsyncPipe],
+  imports: [RouterOutlet, FooterComponent, HeaderComponent, NgForOf, ReviewItemComponent, ServiceItemComponent, NgOptimizedImage, MatTabsModule, UpperCasePipe, NgClass],
   providers: [DataControllerService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
   title = 'kasfit-landing';
+
+  readonly themesList: string[] = ['pilates', 'functional-trx', 'barre', 'stretching-lite'];
+
+  currentTheme: string = '';
 
   linkList: WritableSignal<any> = signal([]);
   serviceItemListData: WritableSignal<any> = signal([]);
@@ -221,8 +226,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    console.log(JSON.stringify(this.data))
     combineLatest([
       this.dataController.getDataLinksList(),
       this.dataController.getDataServicesList(),
@@ -271,5 +274,11 @@ export class AppComponent implements OnInit {
         this.reviewsSectionHeader.set(reviewsSectionHeader)
         this.benefitsList.set(benefitsList)
       });
+  }
+
+  test(event: MatTabChangeEvent): void {
+    this.currentTheme = this.themesList[event.index]
+    console.log(event)
+    console.log(event.index)
   }
 }

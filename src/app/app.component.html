@@ -1,4 +1,4 @@
-<main>
+<main [ngClass]="currentTheme">
   <app-header></app-header>
   <section class="section self-advertisement">
     <div class="section-container">
@@ -41,19 +41,19 @@
   </section>
 
   <section class="section services-section">
-
-    <p class="sub-heading">
+    <p class="sub-heading highlighter">
       {{servicesSectionHeader()}}
     </p>
-    <div class="services-list-container">
-      <ng-container *ngFor="let serviceItem of serviceItemListData()">
+    <mat-tab-group animationDuration="500ms" (selectedTabChange)="test($event)">
+      <mat-tab *ngFor="let serviceItem of serviceItemListData()" [label]="serviceItem.direction | uppercase">
         <app-service-item [serviceItem]="serviceItem"></app-service-item>
-      </ng-container>
-    </div>
+      </mat-tab>
+    </mat-tab-group>
+
   </section>
 
   <section class="section reviews-section">
-    <h4 class="sub-heading">{{reviewsSectionHeader()}}</h4>
+    <h4 class="sub-heading highlighter">{{reviewsSectionHeader()}}</h4>
     <div class="reviews-list-container">
       <ng-container *ngFor="let reviewItem of reviewItemListData()">
         <app-review-item [reviewItem]="reviewItem"></app-review-item>
